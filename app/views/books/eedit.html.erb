@@ -1,0 +1,35 @@
+<h2>Editing Book</h2>
+
+ <% if @llist.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@llist.errors.count, "error") %> prohibited this book from being saved:</h2>
+      <ul>
+        <% @llist.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+<% end %>
+
+
+
+<%= form_with model: @bbook do |f| %>
+
+ <h3>Title</h3>
+  <%= f.text_field :title %>
+  
+  <h3>Body</h3>
+  
+  <%= f.text_area :body %>
+  
+  <h3> </h3>
+  <%= f.submit 'Update Book' %>
+  
+  <h3> </h3>
+  <%= link_to "Show" , book_path, method: :get %>
+  <%= link_to "Back", books_path, mathod: :get %>
+  
+  
+   
+  
+<% end %>
